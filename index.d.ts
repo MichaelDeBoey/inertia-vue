@@ -1,10 +1,15 @@
 import * as Inertia from '@inertiajs/inertia'
-import { Component, FunctionalComponentOptions } from 'vue'
+import Vue, { Component, FunctionalComponentOptions } from 'vue'
 
 interface AppData<PageProps extends Inertia.PageProps = Inertia.PageProps> {
   component: Component | null
   key: number | null
   props: PageProps | {}
+}
+
+interface AppMethods {
+  created: () => void
+  install: (this: Vue) => void
 }
 
 interface AppProps<
@@ -21,7 +26,7 @@ type App<
   PageProps extends Inertia.PageProps = Inertia.PageProps
 > = Component<
   AppData<PageProps>,
-  never,
+  AppMethods,
   never,
   AppProps<PagePropsBeforeTransform, PageProps>
 >
