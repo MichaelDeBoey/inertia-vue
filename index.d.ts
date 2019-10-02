@@ -1,5 +1,5 @@
 import * as Inertia from '@inertiajs/inertia'
-import { Component, FunctionalComponentOptions } from 'vue'
+import { Component, FunctionalComponentOptions, PluginObject } from 'vue'
 
 interface AppData<PageProps extends Inertia.PageProps = Inertia.PageProps> {
   component: Component | null
@@ -38,6 +38,10 @@ interface InertiaLinkProps {
 
 type InertiaLink = FunctionalComponentOptions<InertiaLinkProps>
 
+type Plugin = PluginObject<undefined>
+
 export const InertiaLink: InertiaLink
 
 export const InertiaApp: App
+
+export const InertiaPlugin: Plugin
